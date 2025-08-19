@@ -1,53 +1,21 @@
 /* Main Container */
-@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Delius&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
 
-*{
-  font-family: "Delius", cursive;
-  margin:0;
-  padding:0;
-  box-sizing: border-box;
-}
 .about-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 120vh;
   padding: 40px;
   background-color: #f0f0f0;
   background-size: cover;
   background-position: center;
-}
-.about-container {
-  display: flex;
-  justify-content: center;   /* centers horizontally */
-  align-items: center;       /* centers vertically */
-  min-height: 100vh;         /* makes parent as tall as the screen */
-  background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
-  padding: 20px;             /* space around so it doesn’t stick to edges */
 }
+
 .about-content {
-  display: flex;
-  justify-content: space-between;
-  
-  align-items: center;
-  gap: 40px;
-  padding: 40px;
   border-radius: 12px;
-
-  /* New background */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  /* Optional shadow so it stands out */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* White rounded box */
-.about-content {
   display: flex;
-  flex-direction: row;          /* keep side-by-side */
+  flex-direction: row;        
   align-items: center;
   gap: 36px;
   max-width: 1200px;
@@ -57,11 +25,13 @@
   border-radius: 20px;
   padding: 48px;                /* space inside the white box */
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  overflow: hidden;             /* keeps rotated card edges tidy inside */
+  overflow: hidden; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;           
 }
 
 
-/* LEFT: text */
 .text-column {
   flex: 1 1 50%;
   min-width: 0;
@@ -78,9 +48,9 @@
   font-size: 1.6rem; 
   margin-bottom: 14px;
   opacity: 0;
-  transform: scale(0.5);   /* start small */
+  transform: scale(0.5);   
   animation: micPop 1s ease-out forwards;
-  animation-delay: 0.5s;   /* delay so it appears after page loads */
+  animation-delay: 0.5s;  
   box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
   
 }
@@ -120,7 +90,7 @@
   background: yellow;
   z-index: -1;
   border-radius: 8px 16px 4px 12px;  /* uneven edges = rough feel */
-  filter: blur(2px);                 /* softer */
+  filter: blur(2px);                
   animation: highlightRough 1.5s ease forwards;
 }
 
@@ -140,18 +110,16 @@
   transform: translateY(0);
 }
 
-/* Small delays for smooth staggered effect */
 .fade-in-up:nth-child(1) { transition-delay: 0.2s; }
 .fade-in-up:nth-child(2) { transition-delay: 0.4s; }
 .fade-in-up:nth-child(3) { transition-delay: 0.6s; }
 
-/* RIGHT: cards */
 .cards-column {
  
   flex: 1 1 50%;
   position: relative;
-  left: 90px;     /* allows absolute positioning inside */
-  height: 490px;          /* fix height so cards can overlap */
+  left: 90px;     
+  height: 490px;          
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,7 +140,6 @@
   to   { transform: translateX(0) rotate(-18deg);   opacity: 1; }
 }
 
-/* Shared card styles */
 .card {
   position: absolute;
   width: 180px;
@@ -183,7 +150,7 @@
   box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
   border: 1px solid #ddd;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  padding: 15px;   /* adds spacing inside card */
+  padding: 15px;   
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -203,7 +170,6 @@
     animation-delay: 0.8s;
   }
 
-/* Image inside card */
 .card img {
   width: 100%;
   border-color: #000000;
@@ -211,24 +177,20 @@
   margin-top: 10px;
   object-fit: cover;
   border: 2px solid #000000;
-  border-radius: 12px;   /* rounded corners for image */
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);  /* inner shadow effect */
-  /*margin-bottom: 0px;   /* gap between image and text */
+  border-radius: 12px;  
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);  
 }
 
-/* Text under image */
 .card p {
   margin: 0;
   padding: 6px 8px;
   font-weight: 600;
   font-size: 0.95rem;
   text-align: center;
-  background: none;   /* remove white overlay */
+  background: none;   
   border-top: none;
 }
 
-
-/* Individual card placement */
 .card-blue {
   color:hsl(0, 0%, 100%);
   background-color: rgb(14, 130, 238);
@@ -258,13 +220,11 @@
   z-index: 1;
 }
 
-/* Hover effect – lift up */
 .card:hover {
   transform: scale(1.05) translateY(-6px);
   box-shadow: 0 18px 40px rgba(0,0,0,0.35);
   z-index: 10;
 }
-/* ✅ Only stack on very small screens */
 @media (max-width: 640px) {
   .about-content { flex-direction: column; padding: 28px; }
   .cards-column, .text-column { width: 100%; }

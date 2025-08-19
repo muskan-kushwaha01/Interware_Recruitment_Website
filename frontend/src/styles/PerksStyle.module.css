@@ -1,0 +1,198 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f2ebd5;
+}
+
+/* Heading */
+.heading {
+
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  text-align: center;
+  font-size: 44px;
+  font-weight: bold;
+  color: #333;
+  letter-spacing: 2px;
+  animation: fadeDown 1.2s ease-in-out;
+  position: fixed;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+}
+
+/* Card Styling */
+.perkcard {
+  position: sticky;
+  top: 140px;
+  left:50px;
+  width: 900px;
+  max-width: 85%;
+  height: 420px;
+  margin: 80px auto 60px 20px;
+  border-radius: 24px;
+  background: white;
+  color: #333;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Fancy shadows */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25),
+              inset 5px 5px 15px rgba(255, 255, 255, 0.6),
+              inset -5px -5px 15px rgba(0, 0, 0, 0.05);
+
+  /* Entry animation */
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  animation: cardIn 0.8s ease forwards;
+}
+
+/* Card content */
+.card-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.perkcard-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 20px;
+}
+
+.perkcard-text h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.perkcard-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.perkcard-image img {
+  width: 100%;            /* full width of its flex space */
+  max-width: 350px;       /* limit max width */
+  height: 250px;          /* fixed height for uniformity */
+  object-fit: cover;      /* crop nicely without distortion */
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease;
+}
+
+.perkcard-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(40px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+
+
+.perk-shape {
+  position: fixed;
+  top: 40px;
+  right: -200px; /* start off screen */
+  z-index: 2000;
+  opacity: 0;    /* start hidden */
+}
+
+
+.layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.cards-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/* container for arrow */
+.perk-heading {
+  position: fixed;   /* stays fixed when scrolling */
+  right: -2px;       /* adjust distance from right edge */
+  top: 5%;          /* move more upwards */
+  width: auto;       /* allow arrow to take full width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* arrow shape */
+.arrow-shape {
+  width: 315px;   /* increased width */
+  height: 90px;
+  background-color: #3a190659;
+  /* reversed arrow → pointing LEFT */
+  clip-path: polygon(
+    20% 0,   /* top slant inwards */
+    0 50%,   /* left tip */
+    20% 100%,/* bottom slant inwards */
+    100% 100%,/* bottom right corner */
+    100% 0   /* top right corner */
+  );
+  border: 5px solid #3a190659;
+  position: relative;
+  transform: translateX(150px); /* start off-screen on right */
+  animation: slideIn 1s ease forwards;
+}
+
+/* Right → Left animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* text inside arrow */
+.perk-text {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 1.6;
+  text-align: center;
+  opacity: 0;
+  animation: fadeText 1s ease forwards 1.2s; /* fade after arrow */
+}
+
+@keyframes fadeText {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

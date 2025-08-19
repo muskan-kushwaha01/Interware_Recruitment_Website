@@ -1,8 +1,15 @@
-// src/App.js (Temporary)
-import AboutUs from './pages/AboutUs';
+// src/App.js
+import React from "react";
+//import Footer from "./components/Footer";
+import AboutUs from "./pages/AboutUs";
+//import Perks from "./pages/perks";
 
-function App() {
-  return <AboutUs />;  // Only your page renders
+export default function App() {
+  return (
+    <div>
+      {/* Your page content */}
+      <AboutUs />
+    </div>
+  );
 }
 
-export default App;
